@@ -9,7 +9,7 @@ with st.form(key="form"):
         
         Subject: {user_email}
         
-        {msg_text}
+          {msg_text}
     """
     
     button = st.form_submit_button("Submit")

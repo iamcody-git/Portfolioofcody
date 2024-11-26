@@ -1,10 +1,9 @@
-
 import streamlit as st 
 import pandas
 
 st.set_page_config(layout="wide")
 
-cols1, cols2 = st.columns(2)
+cols1,space,cols2 = st.columns([3,1,3])
 
 with cols1:
     st.image("./Images/p.jpg", width=300)
@@ -21,7 +20,8 @@ Below you can find some of my project built in different programming language.
 """
 st.info(content2)
 
-cols3, cols4 = st.columns(2)
+# create column and add space between the cell
+cols3,space,cols4 = st.columns([3,1,3])
 
 df = pandas.read_csv("dataset.csv", sep=";")
 
@@ -30,19 +30,17 @@ with cols3:
         st.header(row["title"])
         st.write(row["description"])
         st.image("Images/" + row["image"], width=200)
-        st.write("[Souce Code]({row['url']})")
+        st.write(f"[Souce Code]({row['url']})")
 
 with cols4:
     for index, row in df[3:].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image("Images/" + row["image"], width=200)
-        st.write("[Souce Code]({row['url']})")
-        
+        st.write(f"[Souce Code]({row['url']})")
         
 content3 = """
 Follow Me On:
-
 """
 st.info(content3)
 st.write("[GitHub](https://github.com/iamcody-git)")  
